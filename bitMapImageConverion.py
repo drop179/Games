@@ -1,14 +1,17 @@
-v= False
+v = False
 while v == False:
   time = input("Enter the time in the format hr:mn  ")
   if ":" not in time:
     v = False
-  elif time.split(":")[0] > 23 or time.split(":")[1]>59 or time.split(":")[0]<0 or time.split(":")[1]<0:
+  elif int(time.split(":")[0]) > 23 or int(time.split(":")[1]) > 59 or int(time.split(":")[0]) < 0 or int(time.split(":")[1]) < 0:
     v = False
   else:
-    v = True1
+    v = True
 
-  time = input("Incorrect format.\nEnter the time in the format hr:mn  ")
+  if v == False:
+    time = input("Incorrect format.\nEnter the time in the format hr:mn  ")
+
+
 time = [*time]
 time = " ".join(time)
 three = ["01110","10001","00010","10001","01110"]
@@ -42,7 +45,9 @@ space = """0
 0
 0"""
 
-nums = {"0":zero,"1":one,"2":two,"3":three,"4":four,"5":five,"6":six, "7":seven,"8":eight,"9":nine," ":space,":":colon}
+zeroes = ["111", "101", "101", "101", "111"]
+nums = {"0": zeroes, "1": one, "2": two, "3": three, "4": four, "5": five, "6": six, "7": seven, "8": eight, "9": nine, " ": space, ":": colon}
+
 bitTime = []
 for i in time:
   bitTime.append(nums[i])
