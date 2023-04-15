@@ -11,10 +11,7 @@ while v == False:
   if v == False:
     time = input("Incorrect format.\nEnter the time in the format hr:mn  ")
 
-
-time = [*time]
-time = " ".join(time)
-one = ["01110", "10100","00100","00100","11111"]
+one = ["01100", "10100","00100","00100","11111"]
 two = ["10010","00010","001000","011111"]
 three = ["01110","10001","00010","10001","01110"]
 four = ["10001","10001","11111","00001","00001"]
@@ -29,7 +26,16 @@ space = ["0","0","0","0","0"]
 zeroes = ["111", "101", "101", "101", "111"]
 nums = {"0": zeroes, "1": one, "2": two, "3": three, "4": four, "5": five, "6": six, "7": seven, "8": eight, "9": nine, " ": space, ":": colon}
 
-bitTime = []
+t = [" "]
 for i in time:
+    t.append(i)
+    t.append(" ")
+
+bitTime = []
+for i in t:
   bitTime.append(nums[i])
-  print(bitTime)
+
+for row in range(5):
+  for digit in bitTime:
+    print(digit[row], end="")
+  print()
